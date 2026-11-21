@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boda de Abraham y Alondra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--bg-color:#F5EFE6;--white:#FFFFFF;--main-dark:#1F2A44;--text-color:#3a3f4d;--gold:#B39B72;--gold-light:#E6D9BF;
+--font-title:'Playfair Display',serif;--font-script:'Great Vibes',cursive;--font-body:'Lora',serif;--font-sans:'Montserrat',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:112.5%}
+body{background-color:var(--bg-color);color:var(--text-color);font-family:var(--font-body);overflow-x:hidden;background-image:url('https://www.transparenttextures.com/patterns/cream-paper.png')}
+.anim-el{opacity:0;will-change:opacity,transform}
+.fade-in-up{transform:translateY(40px);transition:opacity 1.2s cubic-bezier(.22,1,.36,1),transform 1.2s cubic-bezier(.22,1,.36,1)}
+.scale-in{transform:scale(.9);transition:opacity 1.5s cubic-bezier(.22,1,.36,1),transform 1.5s cubic-bezier(.22,1,.36,1)}
+.fade-in-left{transform:translateX(-40px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
+.visible{opacity:1!important;transform:none!important}
+@keyframes pulseText{0%,100%{opacity:.5}50%{opacity:1}}
+/* Sobre */
+#envelope-screen{position:fixed;inset:0;height:100vh;background:#0f1526 url('https://www.transparenttextures.com/patterns/stardust.png');z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s ease}
+.envelope-wrapper{position:relative;width:340px;height:230px;cursor:pointer;perspective:1200px;transition:transform .4s}
+.envelope-wrapper:hover{transform:scale(1.05)}
+.envelope-body{position:absolute;inset:0;background:#fff;border-radius:4px;box-shadow:0 15px 40px rgba(0,0,0,.5);overflow:hidden}
+.envelope-front{position:absolute;inset:0;z-index:3;border-left:170px solid #F5F5F5;border-right:170px solid #F5F5F5;border-bottom:120px solid #EBEBEB;border-top:110px solid transparent;pointer-events:none}
+.envelope-flap{position:absolute;top:0;left:0;width:0;height:0;border-left:170px solid transparent;border-right:170px solid transparent;border-top:130px solid #fff;transform-origin:top;transition:transform .8s cubic-bezier(.4,0,.2,1);z-index:4;filter:drop-shadow(0 4px 6px rgba(0,0,0,.1))}
+.seal{position:absolute;top:-15px;left:50%;transform:translateX(-50%);width:55px;height:55px;background:var(--main-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-family:var(--font-title);font-size:1.3rem;z-index:5;transition:opacity .3s;border:1px solid var(--gold)}
+.envelope-wrapper.open .envelope-flap{transform:rotateX(180deg);z-index:1;filter:none}
+.envelope-wrapper.open .seal{opacity:0}
+.envelope-text{color:var(--gold-light);font-family:var(--font-sans);font-size:.85rem;letter-spacing:4px;margin-top:50px;text-transform:uppercase;animation:pulseText 2.5s infinite}
+#audio-btn{position:fixed;bottom:25px;right:25px;background:var(--white);color:var(--main-dark);border:1px solid var(--gold);border-radius:50%;width:55px;height:55px;font-size:1.2rem;cursor:pointer;z-index:9000;box-shadow:0 4px 15px rgba(0,0,0,.1);transition:.3s;display:none;align-items:center;justify-content:center}
+#audio-btn:hover{transform:scale(1.1);background:var(--main-dark);color:var(--gold-light)}
+/* Estructura */
+#invitation-content{display:flex;justify-content:center;padding:20px 10px;visibility:hidden;opacity:0;transition:opacity 1.5s}
+.invitation-container{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:1200px;width:100%}
+.column{display:flex;flex-direction:column;align-items:center;padding:50px 30px;text-align:center;overflow:hidden;background:#F8F4EC url('https://www.transparenttextures.com/patterns/cream-paper.png');box-shadow:0 15px 40px rgba(0,0,0,.05)}
+h1,h2,h3{font-family:var(--font-title);font-weight:400;color:var(--main-dark)}
+.divider{display:flex;align-items:center;justify-content:center;margin:25px 0;color:var(--gold);width:100%}
+.divider::before,.divider::after{content:"";height:1px;flex-grow:1;max-width:60px;background:var(--gold);margin:0 15px;opacity:.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--main-dark);color:#fff;padding:14px 28px;text-decoration:none;font-family:var(--font-sans);font-size:.8rem;letter-spacing:2px;font-weight:500;text-transform:uppercase;margin-top:15px;border:1px solid var(--main-dark);cursor:pointer;transition:.3s;border-radius:2px}
+.btn:hover{background:#fff;color:var(--main-dark)}
+.intro-text{font-family:var(--font-sans);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;color:var(--main-dark);font-weight:500}
+.names-container{display:flex;flex-direction:column;align-items:center;line-height:1.1;margin:10px 0 20px;gap:2px}
+.names-container .name{font-family:var(--font-title);font-size:3.6rem;letter-spacing:2px;padding:0}
+.names-container .ampersand{font-family:var(--font-script);font-size:4rem;line-height:1;margin:0;padding:0;color:var(--gold);z-index:2}
+.qr-code{width:150px;height:150px;margin:25px 0;border:2px solid var(--gold);padding:5px;background:#fff}
+.spotify-box{width:100%;margin-top:20px}
+.spotify-box iframe{border-radius:12px;width:100%}
+.welcome-phrase{font-size:.95rem;line-height:1.6;margin:15px 0 25px;font-style:italic}
+.parents-section{margin:30px 0;width:100%}
+.parents-group{margin-bottom:25px}
+.parents-group h4{font-family:var(--font-sans);font-size:.75rem;letter-spacing:2px;color:var(--gold);margin-bottom:8px;text-transform:uppercase;font-weight:600}
+.parents-group p{font-size:1rem;line-height:1.6;font-style:italic}
+.save-date-title{font-family:var(--font-sans);font-size:.85rem;letter-spacing:3px;margin:30px 0 5px;color:var(--main-dark)}
+.save-date-date{font-family:var(--font-title);font-size:clamp(2.5rem,6vw,3.5rem);margin-bottom:5px;white-space:nowrap}
+.calendar-wrapper{width:100%;max-width:320px;margin:25px auto;font-family:var(--font-sans);font-size:.85rem}
+.calendar-month{text-transform:uppercase;letter-spacing:3px;margin-bottom:15px;font-weight:500;color:var(--main-dark)}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.calendar-header{font-weight:600;color:var(--gold);margin-bottom:10px;font-size:.75rem;border-bottom:1px solid rgba(179,155,114,.3);padding-bottom:5px}
+.calendar-day{padding:8px 0}
+.calendar-day.highlight{background:var(--main-dark);color:#fff;border-radius:50%;font-weight:bold}
+.timer-block{width:100%;margin:30px 0;padding:25px 0;border-top:1px solid rgba(179,155,114,.4);border-bottom:1px solid rgba(179,155,114,.4)}
+#countdown-timer{display:flex;justify-content:space-evenly;gap:10px;font-family:var(--font-sans)}
+#countdown-timer span{display:flex;flex-direction:column;font-size:.7rem;letter-spacing:2px;align-items:center}
+#countdown-timer b{font-size:1.8rem;color:var(--main-dark);font-weight:400;font-family:var(--font-title);line-height:1;margin-bottom:5px}
+.venue-card{width:100%;margin-bottom:40px;background:#fff;padding:30px 20px;border-radius:2px;box-shadow:0 5px 15px rgba(0,0,0,.03);border:1px solid rgba(179,155,114,.2);transition:transform .4s}
+.venue-card:hover{transform:translateY(-5px)}
+.venue-icon{font-size:2rem;color:var(--gold);margin-bottom:15px}
+.venue-type{font-family:var(--font-sans);font-size:.75rem;letter-spacing:3px;color:var(--gold);margin-bottom:5px;font-weight:600}
+.venue-name{font-size:1.8rem;margin-bottom:10px}
+.venue-time{font-family:var(--font-sans);font-weight:500;font-size:1.1rem;margin-bottom:20px}
+.venue-img-wrapper{width:100%;height:200px;overflow:hidden;margin-bottom:15px}
+.venue-img{width:100%;height:100%;object-fit:cover}
+.map-iframe-container{width:100%;height:200px;margin-bottom:20px;border:1px solid #EAEAEA}
+.map-iframe-container iframe{width:100%;height:100%;border:0}
+.timeline-section{width:100%;padding:10px;position:relative;text-align:left;margin-bottom:40px}
+.timeline-section::before{content:'';position:absolute;left:24px;top:10px;bottom:10px;width:1px;background:rgba(179,155,114,.4)}
+.timeline-item{display:flex;align-items:flex-start;margin-bottom:35px;position:relative}
+.timeline-icon{width:30px;height:30px;background:#fff;color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;margin-right:20px;box-shadow:0 0 0 6px #F8F4EC;border:1px solid var(--gold);flex-shrink:0}
+.timeline-time{font-family:var(--font-sans);font-weight:600;font-size:.95rem;color:var(--gold);letter-spacing:1px}
+.timeline-event{font-family:var(--font-title);font-size:1.3rem;color:var(--main-dark);margin-top:2px}
+.satin-dark{background:linear-gradient(135deg,#141b2e 0%,#2a3857 25%,#0d1322 50%,#1f2a44 75%,#0a0f1c 100%);color:#fff;width:calc(100% + 60px);margin:30px -30px 40px;padding:50px 30px;box-shadow:inset 0 0 50px rgba(0,0,0,.8)}
+.dress-code-title{font-family:var(--font-sans);font-size:.8rem;letter-spacing:4px;margin-bottom:15px;color:var(--gold-light);font-weight:500}
+.dress-code-main{font-size:2.8rem;margin-bottom:10px;line-height:1.1}
+.palette{display:flex;justify-content:center;gap:14px;margin:22px 0 6px}
+.swatch{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.5)}
+.palette-label{font-family:var(--font-sans);font-size:.7rem;letter-spacing:2px;color:var(--gold-light)}
+.no-kids-block{padding:25px;width:100%;border-top:1px solid rgba(179,155,114,.4);border-bottom:1px solid rgba(179,155,114,.4);margin-bottom:40px}
+.editorial-form-box{width:100%;background:#fff;padding:40px 30px;border-radius:2px;border:1px solid rgba(179,155,114,.3);box-shadow:0 10px 30px rgba(0,0,0,.03);margin-top:20px}
+.rsvp-header{font-size:2rem;margin-bottom:5px}
+.rsvp-subtitle{font-family:var(--font-sans);font-size:.75rem;letter-spacing:3px;color:var(--gold);margin-bottom:30px;text-transform:uppercase}
+.form-group-ed{margin-bottom:25px;text-align:left}
+.form-group-ed label{display:block;font-family:var(--font-sans);font-size:.75rem;color:var(--main-dark);margin-bottom:8px;letter-spacing:2px;text-transform:uppercase;font-weight:500}
+.form-group-ed input[type=text],.form-group-ed select,.form-group-ed textarea{width:100%;padding:10px 0;background:transparent;border:none;border-bottom:1px solid #DDD;font-family:var(--font-body);font-size:1rem;color:var(--text-color);outline:none}
+.form-group-ed input:focus,.form-group-ed select:focus,.form-group-ed textarea:focus{border-bottom-color:var(--gold)}
+#paseSection{padding-bottom:20px;border-bottom:1px dashed rgba(179,155,114,.5);margin-bottom:25px}
+.btn-whatsapp{width:100%;background:var(--main-dark);color:#fff;border:none;font-size:.85rem;padding:15px;letter-spacing:2px;border-radius:2px;display:flex;justify-content:center;align-items:center;gap:10px;cursor:pointer;transition:.3s;text-transform:uppercase;font-family:var(--font-sans)}
+.btn-whatsapp:hover{background:var(--gold)}
+.deadline-text{font-family:var(--font-sans);font-size:.7rem;text-align:center;margin-top:25px;letter-spacing:2px}
+.radio-ed-container{display:flex;gap:20px}
+.radio-ed-label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.95rem}
+.radio-ed-label input{accent-color:var(--gold)}
+.clickable-photo{width:100%;height:auto;object-fit:cover;border-radius:2px;cursor:zoom-in;border:1px solid rgba(179,155,114,.2);box-shadow:0 5px 15px rgba(0,0,0,.05);transition:transform .3s}
+.clickable-photo:hover{transform:scale(1.02)}
+.photo-margin{margin:25px 0}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:30px 0;width:100%}
+#lightbox{position:fixed;inset:0;height:100vh;background:rgba(0,0,0,.95);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s}
+#lightbox.active{opacity:1;visibility:visible}
+#lightbox img{max-width:95%;max-height:90vh;border-radius:4px}
+.lightbox-close{position:absolute;top:25px;right:25px;color:#fff;font-size:2.5rem;cursor:pointer;background:none;border:none}
+.footer-editorial{text-align:center;padding:40px 20px;border-top:1px solid rgba(179,155,114,.3);margin-top:40px}
+.footer-editorial p{font-family:var(--font-sans);font-size:.6rem;letter-spacing:5px;color:var(--main-dark);text-transform:uppercase;font-weight:500}
+h2:not(.dress-code-main),.names-container .name,.save-date-date{background:linear-gradient(110deg,var(--main-dark) 35%,var(--gold) 50%,var(--main-dark) 65%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shineSweep 5s linear infinite}
+.dress-code-main{background:linear-gradient(110deg,#fff 35%,var(--gold-light) 50%,#fff 65%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shineSweep 5s linear infinite}
+@keyframes shineSweep{0%{background-position:200% center}100%{background-position:-200% center}}
+@media(max-width:992px){.invitation-container{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<audio id="bg-audio" loop><source src="assets/song.mp3" type="audio/mpeg"></audio>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightbox-img" src="" alt="Ampliación" onclick="event.stopPropagation()">
+</div>
+
+<div id="envelope-screen">
+  <div class="envelope-wrapper" onclick="openInvitation()">
+    <div class="envelope-front"></div>
+    <div class="envelope-flap"><div class="seal">A&amp;A</div></div>
+    <div class="envelope-body"></div>
+  </div>
+  <div class="envelope-text">Toca para abrir</div>
+</div>
+
+<button id="audio-btn" onclick="toggleAudio()"><i class="fa-solid fa-music" id="audio-icon"></i></button>
+
+<div id="invitation-content">
+<div class="invitation-container">
+
+  <!-- COLUMNA 1 -->
+  <div class="column">
+    <p class="intro-text anim-el fade-in-up">Nuestra Boda</p>
+    <div class="names-container anim-el scale-in" style="transition-delay:.2s">
+      <span class="name">ABRAHAM</span><span class="ampersand">y</span><span class="name">ALONDRA</span>
+    </div>
+    <div class="divider anim-el fade-in-up"><i class="fa-solid fa-heart" style="font-size:.9rem"></i></div>
+
+    <p class="welcome-phrase anim-el fade-in-up">"Con mucha ilusión queremos compartir contigo uno de los días más importantes de nuestras vidas. Después de tantos momentos compartidos, ha llegado el momento de celebrar nuestro amor y comenzar un nuevo capítulo juntos.<br><br>Será un honor contar con tu presencia y celebrar este día tan especial a nuestro lado."</p>
+
+    <div class="parents-section anim-el fade-in-up">
+      <p style="font-family:var(--font-script);font-size:2.2rem;color:var(--gold);margin-bottom:25px">Con la bendición de nuestros padres</p>
+      <div class="parents-group">
+        <h4>Padres de la Novia</h4>
+        <p>Miguel Becerra Mendoza<br>Má. Guadalupe Salinas Cabrera</p>
+      </div>
+      <div class="parents-group">
+        <h4>Padres del Novio</h4>
+        <p>Enrique Licea Velázquez<br>Ma. Engracia Núñez Ramírez <span style="color:var(--gold)">†</span></p>
+      </div>
+      <div class="parents-group" style="margin-top:35px">
+        <h4>Padrinos</h4>
+        <p>Concepción Ortiz Ortiz<br>Magdaleno Núñez Ramírez</p>
+      </div>
+    </div>
+
+    <div class="divider anim-el fade-in-up"><i class="fa-solid fa-heart" style="font-size:.7rem"></i></div>
+
+    <div class="anim-el fade-in-up">
+      <p class="save-date-title">RESERVA LA FECHA</p>
+      <div class="save-date-date">31 &bull; 07 &bull; 2027</div>
+      <p class="intro-text">SÁBADO</p>
+    </div>
+
+    <div class="calendar-wrapper anim-el fade-in-up">
+      <div class="calendar-month">Julio 2027</div>
+      <div class="calendar-grid calendar-header"><div>DOM</div><div>LUN</div><div>MAR</div><div>MIE</div><div>JUE</div><div>VIE</div><div>SAB</div></div>
+      <div class="calendar-grid" id="calendar-days"></div>
+    </div>
+
+    <div class="timer-block anim-el fade-in-up">
+      <p style="font-family:var(--font-script);font-size:1.8rem;margin-bottom:15px;color:var(--gold)">Faltan</p>
+      <div id="countdown-timer">
+        <span><b id="dias">00</b> DÍAS</span><span><b id="horas">00</b> HRS</span><span><b id="minutos">00</b> MIN</span><span><b id="segundos">00</b> SEG</span>
+      </div>
+    </div>
+
+    <button onclick="downloadICS()" class="btn anim-el fade-in-up" style="width:100%"><i class="fa-regular fa-calendar-plus"></i> AGREGAR AL CALENDARIO</button>
+  </div>
+
+  <!-- COLUMNA 2 -->
+  <div class="column">
+    <h2 class="anim-el fade-in-up" style="font-size:2.2rem;margin-bottom:5px">UBICACIONES</h2>
+    <div class="divider anim-el fade-in-up"><i class="fa-solid fa-map-location-dot" style="font-size:.9rem"></i></div>
+
+    <div class="venue-card anim-el fade-in-up">
+      <i class="fa-solid fa-church venue-icon"></i>
+      <p class="venue-type">CEREMONIA RELIGIOSA</p>
+      <h3 class="venue-name">Pie de Gallo, Santa Rosa Jáuregui</h3>
+      <p class="venue-time">3:00 P.M.</p>
+      <div class="map-iframe-container">
+        <iframe src="https://www.google.com/maps?q=Pie+de+Gallo+Santa+Rosa+Jauregui+Queretaro&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <a href="https://share.google/qSvxaYSti28N69iuZ" target="_blank" class="btn" style="width:100%"><i class="fa-solid fa-location-dot"></i> UBICACIÓN EXACTA</a>
+    </div>
+
+    <div class="venue-card anim-el fade-in-up" style="margin-top:25px">
+      <i class="fa-solid fa-champagne-glasses venue-icon"></i>
+      <p class="venue-type">CELEBRACIÓN</p>
+      <h3 class="venue-name">Salón Quinta del Rey</h3>
+      <p style="font-size:.9rem;margin-bottom:10px;font-style:italic">Buenavista, Querétaro</p>
+      <p class="venue-time">5:00 P.M.</p>
+      <div class="map-iframe-container">
+        <iframe src="https://www.google.com/maps?q=Salon+Quinta+del+Rey+Buenavista+Queretaro&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <a href="https://share.google/JjVQljfX32OG7c3RU" target="_blank" class="btn" style="width:100%"><i class="fa-solid fa-location-dot"></i> UBICACIÓN EXACTA</a>
+    </div>
+
+    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:30px">ITINERARIO</h2>
+    <div class="divider anim-el fade-in-up"><i class="fa-regular fa-clock" style="font-size:.9rem"></i></div>
+    <div class="timeline-section">
+      <div class="timeline-item anim-el fade-in-left" style="transition-delay:.1s">
+        <div class="timeline-icon"><i class="fa-solid fa-church"></i></div>
+        <div><div class="timeline-time">15:00 HRS</div><div class="timeline-event">Ceremonia Religiosa</div></div>
+      </div>
+      <div class="timeline-item anim-el fade-in-left" style="transition-delay:.2s">
+        <div class="timeline-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+        <div><div class="timeline-time">17:00 HRS</div><div class="timeline-event">Recepción y Celebración</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLUMNA 3 -->
+  <div class="column">
+
+    <div class="satin-dark anim-el scale-in" style="margin-top:0">
+      <p class="dress-code-title">CÓDIGO DE VESTIMENTA</p>
+      <h2 class="dress-code-main">Formal</h2>
+      <p style="font-size:.95rem;font-style:italic;opacity:.9;line-height:1.6;margin-top:15px">Agradecemos evitar prendas en color <b>blanco</b> y <b>rojo</b>.</p>
+      <div class="palette">
+        <div class="swatch" style="background:#1F2A44" title="Azul marino"></div>
+        <div class="swatch" style="background:#D9C7A3" title="Beige"></div>
+        <div class="swatch" style="background:#FFFFFF" title="Blanco"></div>
+      </div>
+      <p class="palette-label">AZUL MARINO &bull; BEIGE &bull; BLANCO &bull; ROSAS BLANCAS</p>
+    </div>
+
+    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:20px">MESA DE REGALOS</h2>
+    <div class="divider anim-el fade-in-up"><i class="fa-solid fa-gift" style="font-size:.9rem"></i></div>
+    <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6;margin-bottom:25px">El mejor regalo es su presencia, pero si desean tener un detalle adicional con nosotros:</p>
+    <div class="btn anim-el fade-in-up" style="width:100%;background:#0057B8;border:none;padding:18px;cursor:default;flex-direction:column;gap:4px">
+      <span><i class="fa-solid fa-gift"></i> Sears</span>
+      <span style="letter-spacing:1px">Mesa de regalos #297551</span>
+    </div>
+
+    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:50px">GALERÍA EN VIVO</h2>
+    <div class="divider anim-el fade-in-up"><i class="fa-solid fa-camera-retro" style="font-size:.9rem"></i></div>
+    <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6">¡Queremos ver la boda a través de tus ojos! Escanea para compartir tus fotos y videos.</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1QsrS-1yN79lRPRiDDkTLSzUPW3uj66FZ%3Fusp%3Dsharing" alt="QR Galería" class="qr-code anim-el scale-in">
+    <a href="https://drive.google.com/drive/folders/1QsrS-1yN79lRPRiDDkTLSzUPW3uj66FZ?usp=sharing" target="_blank" class="btn anim-el fade-in-up" style="width:100%"><i class="fa-brands fa-google-drive"></i> SUBIR MIS FOTOS</a>
+
+    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:50px">NUESTRA PLAYLIST</h2>
+    <div class="divider anim-el fade-in-up"><i class="fa-brands fa-spotify" style="font-size:.9rem"></i></div>
+    <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6">Ayúdanos a armar la música de la fiesta. ¡Agrega las canciones que no pueden faltar!</p>
+    <div class="spotify-box anim-el fade-in-up">
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7GELhw4JjVGui5qmF1NF6D?utm_source=generator&si=fe77d5f0173e41f4" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <a href="https://open.spotify.com/playlist/7GELhw4JjVGui5qmF1NF6D?si=a02e70528f054a7c&pt=9e6e914ce4cc6d86a7e9c647a0dbe1a8" target="_blank" class="btn anim-el fade-in-up" style="width:100%"><i class="fa-brands fa-spotify"></i> AGREGAR CANCIONES</a>
+
+    <div class="editorial-form-box anim-el fade-in-up" style="margin-top:50px">
+      <h2 class="rsvp-header">R.S.V.P.</h2>
+      <p class="rsvp-subtitle">Confirmación de Asistencia</p>
+
+      <div id="paseSection" style="display:none">
+        <p style="font-family:var(--font-sans);font-size:.75rem;letter-spacing:2px;color:var(--gold);margin-bottom:5px;text-transform:uppercase">Pase Personal</p>
+        <h2 id="guestNameDisplay" style="font-size:1.8rem;margin:5px 0">Invitado</h2>
+        <p style="font-size:1.1rem">Lugares reservados: <span id="guestPassesDisplay" style="font-weight:bold;color:var(--gold);font-size:1.4rem"></span></p>
+        <p style="font-size:.85rem;line-height:1.5;margin-top:15px;font-style:italic">Queremos compartir este día tan especial con las personas que amamos. Por ello, los lugares han sido reservados especialmente para cada invitado.<br><span style="font-size:.75rem;color:#666">(Los boletos son únicos e intransferibles, agradecemos su comprensión, gracias)</span></p>
+      </div>
+
+      <form id="rsvpForm">
+        <div id="genericRSVPInputs">
+          <div class="form-group-ed"><label>Nombre del Titular:</label><input type="text" id="rsvpNombre" placeholder="Escribe tu nombre completo"></div>
+          <div class="form-group-ed"><label>Respuesta:</label>
+            <select id="rsvpAsistencia">
+              <option value="">Selecciona una opción</option>
+              <option value="¡Sí, asistiré con gusto!">¡Sí, asistiré con gusto!</option>
+              <option value="Lamentablemente no podré asistir">Lamento no poder acompañarlos</option>
+            </select>
+          </div>
+        </div>
+        <div id="dynamicGuestList" style="width:100%;text-align:left"></div>
+        <button type="button" onclick="sendRSVP()" class="btn-whatsapp" style="margin-top:25px"><i class="fa-brands fa-whatsapp" style="font-size:1.2rem"></i> CONFIRMAR VÍA WHATSAPP</button>
+      </form>
+    </div>
+
+    <div class="editorial-form-box anim-el fade-in-up" style="margin-top:30px">
+      <p style="font-family:var(--font-script);font-size:2.5rem;color:var(--gold);margin-bottom:10px">Buenos Deseos</p>
+      <p style="font-size:.9rem;margin-bottom:25px">Nos encantaría atesorar tus palabras. Déjanos un mensaje para recordar este día por siempre.</p>
+      <form id="wishesForm">
+        <div class="form-group-ed"><textarea id="wishesText" rows="3" placeholder="Con cariño para Abraham y Alondra..."></textarea></div>
+        <button type="button" onclick="sendWishes()" class="btn" style="width:100%;font-size:.85rem;padding:15px"><i class="fa-solid fa-paper-plane"></i> ENVIAR MENSAJE</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<footer class="footer-editorial"><p>INVYTIA VIP DESIGN</p></footer>
+
+<script>
+const audio=document.getElementById('bg-audio'),audioIcon=document.getElementById('audio-icon'),audioBtn=document.getElementById('audio-btn');
+let envelopeOpened=false;
+function openInvitation(){
+  if(envelopeOpened)return;envelopeOpened=true;
+  const scr=document.getElementById('envelope-screen'),content=document.getElementById('invitation-content');
+  document.querySelector('.envelope-wrapper').classList.add('open');
+  audio.play().then(()=>{audioIcon.classList.replace('fa-music','fa-pause')}).catch(e=>console.log("Auto-play prevenido",e));
+  setTimeout(()=>{scr.style.opacity='0';content.style.visibility='visible';content.style.opacity='1';audioBtn.style.display='flex';
+    setTimeout(()=>{scr.style.display='none'},1000)},900);
+}
+function toggleAudio(){
+  if(audio.paused){audio.play();audioIcon.classList.replace('fa-music','fa-pause')}
+  else{audio.pause();audioIcon.classList.replace('fa-pause','fa-music')}
+}
+function openLightbox(src){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox').classList.add('active')}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active')}
+
+const telefonoWhatsApp="524428704973";
+
+// Calendario Julio 2027 (1 de julio = jueves)
+(function(){
+  let h='';for(let i=0;i<4;i++)h+='<div></div>';
+  for(let d=1;d<=31;d++)h+=`<div class="calendar-day${d===31?' highlight':''}">${d}</div>`;
+  document.getElementById('calendar-days').innerHTML=h;
+})();
+
+document.addEventListener("DOMContentLoaded",function(){
+  const observer=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.anim-el').forEach(el=>observer.observe(el));
+
+  // LISTA DE INVITADOS (formato: "1": { inv: "Nombre", pases: 2, nombres: ["A","B"] })
+  const listaInvitados={
+  };
+
+  const p=new URLSearchParams(window.location.search);
+  const guestId=p.get('id');
+  let invitado=p.get('invitado'),pases=p.get('pases')||p.get('p'),nombresStr=p.get('nombres'),nombresArray=[];
+  if(guestId&&listaInvitados[guestId]){
+    invitado=listaInvitados[guestId].inv;pases=listaInvitados[guestId].pases;nombresArray=listaInvitados[guestId].nombres;
+  }else if(nombresStr){nombresArray=nombresStr.split(',')}
+
+  if(pases){
+    document.getElementById('paseSection').style.display='block';
+    document.getElementById('guestNameDisplay').textContent=invitado||"Pase Especial";
+    document.getElementById('guestPassesDisplay').textContent=pases;
+  }
+
+  if(nombresArray.length>0){
+    let html=`<label style="font-family:var(--font-sans);font-size:.75rem;color:var(--main-dark);margin-bottom:15px;display:block;letter-spacing:2px;font-weight:500">SELECCIONA QUIÉNES ASISTEN:</label>`;
+    nombresArray.forEach((n,i)=>{
+      html+=`<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid #DDD">
+      <span class="rsvp-name-ext" style="font-size:1rem;flex:1;min-width:120px">${n.trim()}</span>
+      <div class="radio-ed-container"><label class="radio-ed-label"><input type="radio" name="asistencia_${i}" value="Sí"> Sí</label>
+      <label class="radio-ed-label"><input type="radio" name="asistencia_${i}" value="No"> No</label></div></div>`;
+    });
+    document.getElementById('dynamicGuestList').innerHTML=html;
+    document.getElementById('genericRSVPInputs').style.display='none';
+  }
+
+  // Cuenta regresiva: 31 jul 2027, 3:00 PM
+  const target=new Date("Jul 31, 2027 15:00:00").getTime();
+  const x=setInterval(function(){
+    const dist=target-new Date().getTime();
+    if(dist<0){clearInterval(x);document.getElementById("countdown-timer").innerHTML="<span style='font-size:1.8rem;width:100%;color:var(--main-dark);font-family:var(--font-title)'>¡HOY ES EL GRAN DÍA!</span>";return}
+    const pad=n=>n<10?"0"+n:n;
+    document.getElementById("dias").innerHTML=pad(Math.floor(dist/864e5));
+    document.getElementById("horas").innerHTML=pad(Math.floor(dist%864e5/36e5));
+    document.getElementById("minutos").innerHTML=pad(Math.floor(dist%36e5/6e4));
+    document.getElementById("segundos").innerHTML=pad(Math.floor(dist%6e4/1e3));
+  },1000);
+});
+
+function sendRSVP(){
+  const list=document.getElementById('dynamicGuestList');
+  let mensaje="";
+  if(list.children.length>0){
+    let ok=[],no=[],all=true;
+    list.querySelectorAll('.rsvp-name-ext').forEach((s,i)=>{
+      const o=document.querySelector(`input[name="asistencia_${i}"]:checked`);
+      if(!o)all=false;else if(o.value==='Sí')ok.push(s.textContent.trim());else no.push(s.textContent.trim());
+    });
+    if(!all){alert("Por favor, selecciona si asiste o no cada persona de la lista.");return}
+    const inv=document.getElementById('guestNameDisplay').textContent;
+    mensaje=`¡Hola! Somos la familia / acompañantes de *${inv}* y aquí está nuestra confirmación:\n\n`;
+    if(ok.length)mensaje+=`✅ *Asistirán con gusto:*\n- ${ok.join('\n- ')}\n\n`;
+    if(no.length)mensaje+=`❌ *Lamentablemente no podrán asistir:*\n- ${no.join('\n- ')}\n\n`;
+  }else{
+    const n=document.getElementById('rsvpNombre').value.trim(),a=document.getElementById('rsvpAsistencia').value;
+    if(!n||!a){alert("Por favor, completa tu nombre y estado de asistencia.");return}
+    mensaje=`Hola, soy *${n}*.\n\nQuiero confirmar mi respuesta a la boda de Abraham y Alondra: *${a}*\n\n`;
+  }
+  window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`,'_blank');
+}
+
+function sendWishes(){
+  const w=document.getElementById('wishesText').value.trim();
+  if(!w){alert("Por favor, escribe un mensaje primero.");return}
+  window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(`¡Hola Abraham y Alondra! Les dejo este mensaje para su libro de firmas:\n\n"${w}"`)}`,'_blank');
+}
+
+function downloadICS(){
+  // 3:00 PM hora centro (UTC-6) = 21:00Z
+  const cal=`BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Boda Abraham y Alondra//ES\nBEGIN:VEVENT\nDTSTART:20270731T210000Z\nDTEND:20270801T060000Z\nSUMMARY:Boda de Abraham y Alondra\nLOCATION:Pie de Gallo\\, Santa Rosa Jáuregui\nDESCRIPTION:¡Acompáñanos a celebrar nuestra boda! Recepción a las 5:00 PM en Salón Quinta del Rey\\, Buenavista\\, Querétaro.\nEND:VEVENT\nEND:VCALENDAR`;
+  const url=URL.createObjectURL(new Blob([cal],{type:'text/calendar;charset=utf-8'}));
+  const a=document.createElement('a');a.href=url;a.download='Boda_Abraham_y_Alondra.ics';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
