@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boda de Abraham y Alondra</title>
+<title>Boda de Abraham y Eli</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -131,7 +131,7 @@ h2:not(.dress-code-main),.names-container .name,.save-date-date{background:linea
 <div id="envelope-screen">
   <div class="envelope-wrapper" onclick="openInvitation()">
     <div class="envelope-front"></div>
-    <div class="envelope-flap"><div class="seal">A&amp;A</div></div>
+    <div class="envelope-flap"><div class="seal">A&amp;E</div></div>
     <div class="envelope-body"></div>
   </div>
   <div class="envelope-text">Toca para abrir</div>
@@ -146,7 +146,7 @@ h2:not(.dress-code-main),.names-container .name,.save-date-date{background:linea
   <div class="column">
     <p class="intro-text anim-el fade-in-up">Nuestra Boda</p>
     <div class="names-container anim-el scale-in" style="transition-delay:.2s">
-      <span class="name">ABRAHAM</span><span class="ampersand">y</span><span class="name">ALONDRA</span>
+      <span class="name">ABRAHAM</span><span class="ampersand">y</span><span class="name">ELI</span>
     </div>
     <div class="divider anim-el fade-in-up"><i class="fa-solid fa-heart" style="font-size:.9rem"></i></div>
 
@@ -249,13 +249,10 @@ h2:not(.dress-code-main),.names-container .name,.save-date-date{background:linea
       <p class="palette-label">AZUL MARINO &bull; BEIGE &bull; BLANCO &bull; ROSAS BLANCAS</p>
     </div>
 
-    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:20px">MESA DE REGALOS</h2>
-    <div class="divider anim-el fade-in-up"><i class="fa-solid fa-gift" style="font-size:.9rem"></i></div>
-    <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6;margin-bottom:25px">El mejor regalo es su presencia, pero si desean tener un detalle adicional con nosotros:</p>
-    <div class="btn anim-el fade-in-up" style="width:100%;background:#0057B8;border:none;padding:18px;cursor:default;flex-direction:column;gap:4px">
-      <span><i class="fa-solid fa-gift"></i> Sears</span>
-      <span style="letter-spacing:1px">Mesa de regalos #297551</span>
-    </div>
+    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:20px">LLUVIA DE SOBRES</h2>
+    <div class="divider anim-el fade-in-up"><i class="fa-solid fa-envelope" style="font-size:.9rem"></i></div>
+    <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6;margin-bottom:10px">Su presencia es nuestro mejor regalo. Si desean tener un detalle adicional con nosotros, con mucho cariño recibiremos su aportación en efectivo durante la <b>lluvia de sobres</b> que realizaremos el día de la boda.</p>
+    <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6;font-style:italic;color:var(--gold)">¡Gracias por ser parte de nuestro día!</p>
 
     <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:50px">GALERÍA EN VIVO</h2>
     <div class="divider anim-el fade-in-up"><i class="fa-solid fa-camera-retro" style="font-size:.9rem"></i></div>
@@ -302,7 +299,7 @@ h2:not(.dress-code-main),.names-container .name,.save-date-date{background:linea
       <p style="font-family:var(--font-script);font-size:2.5rem;color:var(--gold);margin-bottom:10px">Buenos Deseos</p>
       <p style="font-size:.9rem;margin-bottom:25px">Nos encantaría atesorar tus palabras. Déjanos un mensaje para recordar este día por siempre.</p>
       <form id="wishesForm">
-        <div class="form-group-ed"><textarea id="wishesText" rows="3" placeholder="Con cariño para Abraham y Alondra..."></textarea></div>
+        <div class="form-group-ed"><textarea id="wishesText" rows="3" placeholder="Con cariño para Abraham y Eli..."></textarea></div>
         <button type="button" onclick="sendWishes()" class="btn" style="width:100%;font-size:.85rem;padding:15px"><i class="fa-solid fa-paper-plane"></i> ENVIAR MENSAJE</button>
       </form>
     </div>
@@ -403,7 +400,7 @@ function sendRSVP(){
   }else{
     const n=document.getElementById('rsvpNombre').value.trim(),a=document.getElementById('rsvpAsistencia').value;
     if(!n||!a){alert("Por favor, completa tu nombre y estado de asistencia.");return}
-    mensaje=`Hola, soy *${n}*.\n\nQuiero confirmar mi respuesta a la boda de Abraham y Alondra: *${a}*\n\n`;
+    mensaje=`Hola, soy *${n}*.\n\nQuiero confirmar mi respuesta a la boda de Abraham y Eli: *${a}*\n\n`;
   }
   window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`,'_blank');
 }
@@ -411,14 +408,14 @@ function sendRSVP(){
 function sendWishes(){
   const w=document.getElementById('wishesText').value.trim();
   if(!w){alert("Por favor, escribe un mensaje primero.");return}
-  window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(`¡Hola Abraham y Alondra! Les dejo este mensaje para su libro de firmas:\n\n"${w}"`)}`,'_blank');
+  window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(`¡Hola Abraham y Eli! Les dejo este mensaje para su libro de firmas:\n\n"${w}"`)}`,'_blank');
 }
 
 function downloadICS(){
   // 3:00 PM hora centro (UTC-6) = 21:00Z
-  const cal=`BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Boda Abraham y Alondra//ES\nBEGIN:VEVENT\nDTSTART:20270731T210000Z\nDTEND:20270801T060000Z\nSUMMARY:Boda de Abraham y Alondra\nLOCATION:Pie de Gallo\\, Santa Rosa Jáuregui\nDESCRIPTION:¡Acompáñanos a celebrar nuestra boda! Recepción a las 5:00 PM en Salón Quinta del Rey\\, Buenavista\\, Querétaro.\nEND:VEVENT\nEND:VCALENDAR`;
+  const cal=`BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Boda Abraham y Eli//ES\nBEGIN:VEVENT\nDTSTART:20270731T210000Z\nDTEND:20270801T060000Z\nSUMMARY:Boda de Abraham y Eli\nLOCATION:Pie de Gallo\\, Santa Rosa Jáuregui\nDESCRIPTION:¡Acompáñanos a celebrar nuestra boda! Recepción a las 5:00 PM en Salón Quinta del Rey\\, Buenavista\\, Querétaro.\nEND:VEVENT\nEND:VCALENDAR`;
   const url=URL.createObjectURL(new Blob([cal],{type:'text/calendar;charset=utf-8'}));
-  const a=document.createElement('a');a.href=url;a.download='Boda_Abraham_y_Alondra.ics';
+  const a=document.createElement('a');a.href=url;a.download='Boda_Abraham_y_Eli.ics';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
 }
 </script>
