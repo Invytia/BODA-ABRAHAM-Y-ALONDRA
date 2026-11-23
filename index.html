@@ -31,14 +31,14 @@ body{background-color:var(--bg-color);color:var(--text-color);font-family:var(--
 .envelope-wrapper.open .envelope-flap{transform:rotateX(180deg);z-index:1;filter:none}
 .envelope-wrapper.open .seal{opacity:0}
 .envelope-text{color:var(--gold-light);font-family:var(--font-sans);font-size:.85rem;letter-spacing:4px;margin-top:50px;text-transform:uppercase;animation:pulseText 2.5s infinite}
-#audio-btn{position:fixed;bottom:25px;right:25px;background:var(--white);color:var(--main-dark);border:1px solid var(--gold);border-radius:50%;width:55px;height:55px;font-size:1.2rem;cursor:pointer;z-index:9000;box-shadow:0 4px 15px rgba(0,0,0,.1);transition:.3s;display:none;align-items:center;justify-content:center}
-#audio-btn:hover{transform:scale(1.1);background:var(--main-dark);color:var(--gold-light)}
+#audio-btn{position:fixed;bottom:25px;right:25px;background:var(--main-dark);color:var(--gold-light);border:1px solid var(--gold);border-radius:50%;width:55px;height:55px;font-size:1.2rem;cursor:pointer;z-index:9000;box-shadow:0 4px 15px rgba(0,0,0,.1);transition:.3s;display:none;align-items:center;justify-content:center}
+#audio-btn:hover{transform:scale(1.1);background:var(--white);color:var(--main-dark)}
 /* Estructura */
 #invitation-content{display:flex;justify-content:center;padding:20px 10px;visibility:hidden;opacity:0;transition:opacity 1.5s}
-.invitation-container{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:1200px;width:100%}
+.invitation-container{display:flex;flex-direction:column;gap:15px;max-width:520px;width:100%}
 .column{display:flex;flex-direction:column;align-items:center;padding:50px 30px;text-align:center;overflow:hidden;background:#F8F4EC url('https://www.transparenttextures.com/patterns/cream-paper.png');box-shadow:0 15px 40px rgba(0,0,0,.05)}
 h1,h2,h3{font-family:var(--font-title);font-weight:400;color:var(--main-dark)}
-.divider{display:flex;align-items:center;justify-content:center;margin:25px 0;color:var(--gold);width:100%}
+.divider{display:flex;align-items:center;justify-content:center;margin:25px 0;color:var(--main-dark);width:100%}
 .divider::before,.divider::after{content:"";height:1px;flex-grow:1;max-width:60px;background:var(--gold);margin:0 15px;opacity:.5}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--main-dark);color:#fff;padding:14px 28px;text-decoration:none;font-family:var(--font-sans);font-size:.8rem;letter-spacing:2px;font-weight:500;text-transform:uppercase;margin-top:15px;border:1px solid var(--main-dark);cursor:pointer;transition:.3s;border-radius:2px}
 .btn:hover{background:#fff;color:var(--main-dark)}
@@ -52,14 +52,14 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400;color:var(--main-dark)}
 .welcome-phrase{font-size:.95rem;line-height:1.6;margin:15px 0 25px;font-style:italic}
 .parents-section{margin:30px 0;width:100%}
 .parents-group{margin-bottom:25px}
-.parents-group h4{font-family:var(--font-sans);font-size:.75rem;letter-spacing:2px;color:var(--gold);margin-bottom:8px;text-transform:uppercase;font-weight:600}
+.parents-group h4{font-family:var(--font-sans);font-size:.75rem;letter-spacing:2px;color:var(--main-dark);margin-bottom:8px;text-transform:uppercase;font-weight:600}
 .parents-group p{font-size:1rem;line-height:1.6;font-style:italic}
 .save-date-title{font-family:var(--font-sans);font-size:.85rem;letter-spacing:3px;margin:30px 0 5px;color:var(--main-dark)}
 .save-date-date{font-family:var(--font-title);font-size:clamp(2.5rem,6vw,3.5rem);margin-bottom:5px;white-space:nowrap}
 .calendar-wrapper{width:100%;max-width:320px;margin:25px auto;font-family:var(--font-sans);font-size:.85rem}
 .calendar-month{text-transform:uppercase;letter-spacing:3px;margin-bottom:15px;font-weight:500;color:var(--main-dark)}
 .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-.calendar-header{font-weight:600;color:var(--gold);margin-bottom:10px;font-size:.75rem;border-bottom:1px solid rgba(179,155,114,.3);padding-bottom:5px}
+.calendar-header{font-weight:600;color:var(--main-dark);margin-bottom:10px;font-size:.75rem;border-bottom:1px solid rgba(179,155,114,.3);padding-bottom:5px}
 .calendar-day{padding:8px 0}
 .calendar-day.highlight{background:var(--main-dark);color:#fff;border-radius:50%;font-weight:bold}
 .timer-block{width:100%;margin:30px 0;padding:25px 0;border-top:1px solid rgba(179,155,114,.4);border-bottom:1px solid rgba(179,155,114,.4)}
@@ -68,7 +68,7 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400;color:var(--main-dark)}
 #countdown-timer b{font-size:1.8rem;color:var(--main-dark);font-weight:400;font-family:var(--font-title);line-height:1;margin-bottom:5px}
 .venue-card{width:100%;margin-bottom:40px;background:#fff;padding:30px 20px;border-radius:2px;box-shadow:0 5px 15px rgba(0,0,0,.03);border:1px solid rgba(179,155,114,.2);transition:transform .4s}
 .venue-card:hover{transform:translateY(-5px)}
-.venue-icon{font-size:2rem;color:var(--gold);margin-bottom:15px}
+.venue-icon{font-size:2rem;color:var(--main-dark);margin-bottom:15px}
 .venue-type{font-family:var(--font-sans);font-size:.75rem;letter-spacing:3px;color:var(--gold);margin-bottom:5px;font-weight:600}
 .venue-name{font-size:1.8rem;margin-bottom:10px}
 .venue-time{font-family:var(--font-sans);font-weight:500;font-size:1.1rem;margin-bottom:20px}
@@ -79,7 +79,7 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400;color:var(--main-dark)}
 .timeline-section{width:100%;padding:10px;position:relative;text-align:left;margin-bottom:40px}
 .timeline-section::before{content:'';position:absolute;left:24px;top:10px;bottom:10px;width:1px;background:rgba(179,155,114,.4)}
 .timeline-item{display:flex;align-items:flex-start;margin-bottom:35px;position:relative}
-.timeline-icon{width:30px;height:30px;background:#fff;color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;margin-right:20px;box-shadow:0 0 0 6px #F8F4EC;border:1px solid var(--gold);flex-shrink:0}
+.timeline-icon{width:30px;height:30px;background:var(--main-dark);color:var(--gold-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;margin-right:20px;box-shadow:0 0 0 6px #F8F4EC;border:1px solid var(--gold);flex-shrink:0}
 .timeline-time{font-family:var(--font-sans);font-weight:600;font-size:.95rem;color:var(--gold);letter-spacing:1px}
 .timeline-event{font-family:var(--font-title);font-size:1.3rem;color:var(--main-dark);margin-top:2px}
 .satin-dark{background:linear-gradient(135deg,#141b2e 0%,#2a3857 25%,#0d1322 50%,#1f2a44 75%,#0a0f1c 100%);color:#fff;width:calc(100% + 60px);margin:30px -30px 40px;padding:50px 30px;box-shadow:inset 0 0 50px rgba(0,0,0,.8)}
@@ -111,12 +111,11 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400;color:var(--main-dark)}
 #lightbox.active{opacity:1;visibility:visible}
 #lightbox img{max-width:95%;max-height:90vh;border-radius:4px}
 .lightbox-close{position:absolute;top:25px;right:25px;color:#fff;font-size:2.5rem;cursor:pointer;background:none;border:none}
-.footer-editorial{text-align:center;padding:40px 20px;border-top:1px solid rgba(179,155,114,.3);margin-top:40px}
-.footer-editorial p{font-family:var(--font-sans);font-size:.6rem;letter-spacing:5px;color:var(--main-dark);text-transform:uppercase;font-weight:500}
+.footer-editorial{text-align:center;padding:40px 20px;background:var(--main-dark);border-top:2px solid var(--gold);margin-top:40px}
+.footer-editorial p{font-family:var(--font-sans);font-size:.6rem;letter-spacing:5px;color:var(--gold-light);text-transform:uppercase;font-weight:500}
 h2:not(.dress-code-main),.names-container .name,.save-date-date{background:linear-gradient(110deg,var(--main-dark) 35%,var(--gold) 50%,var(--main-dark) 65%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shineSweep 5s linear infinite}
 .dress-code-main{background:linear-gradient(110deg,#fff 35%,var(--gold-light) 50%,#fff 65%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shineSweep 5s linear infinite}
 @keyframes shineSweep{0%{background-position:200% center}100%{background-position:-200% center}}
-@media(max-width:992px){.invitation-container{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -240,7 +239,7 @@ h2:not(.dress-code-main),.names-container .name,.save-date-date{background:linea
     <div class="satin-dark anim-el scale-in" style="margin-top:0">
       <p class="dress-code-title">CÓDIGO DE VESTIMENTA</p>
       <h2 class="dress-code-main">Formal</h2>
-      <p style="font-size:.95rem;font-style:italic;opacity:.9;line-height:1.6;margin-top:15px">Agradecemos evitar prendas en color <b>blanco</b> y <b>rojo</b>.</p>
+      <p style="font-size:.95rem;font-style:italic;opacity:.9;line-height:1.6;margin-top:15px">Agradecemos de corazón evitar los colores <b>blanco</b> y <b>rojo</b>, ya que están reservados para la novia.</p>
       <div class="palette">
         <div class="swatch" style="background:#1F2A44" title="Azul marino"></div>
         <div class="swatch" style="background:#D9C7A3" title="Beige"></div>
@@ -249,12 +248,7 @@ h2:not(.dress-code-main),.names-container .name,.save-date-date{background:linea
       <p class="palette-label">AZUL MARINO &bull; BEIGE &bull; BLANCO &bull; ROSAS BLANCAS</p>
     </div>
 
-    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:20px">LLUVIA DE SOBRES</h2>
-    <div class="divider anim-el fade-in-up"><i class="fa-solid fa-envelope" style="font-size:.9rem"></i></div>
-    <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6;margin-bottom:10px">Su presencia es nuestro mejor regalo. Si desean tener un detalle adicional con nosotros, con mucho cariño recibiremos su aportación en efectivo durante la <b>lluvia de sobres</b> que realizaremos el día de la boda.</p>
-    <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6;font-style:italic;color:var(--gold)">¡Gracias por ser parte de nuestro día!</p>
-
-    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:50px">GALERÍA EN VIVO</h2>
+    <h2 class="anim-el fade-in-up" style="font-size:2rem;margin-top:20px">GALERÍA EN VIVO</h2>
     <div class="divider anim-el fade-in-up"><i class="fa-solid fa-camera-retro" style="font-size:.9rem"></i></div>
     <p class="anim-el fade-in-up" style="font-size:.95rem;line-height:1.6">¡Queremos ver la boda a través de tus ojos! Escanea para compartir tus fotos y videos.</p>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1QsrS-1yN79lRPRiDDkTLSzUPW3uj66FZ%3Fusp%3Dsharing" alt="QR Galería" class="qr-code anim-el scale-in">
